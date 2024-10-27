@@ -1,0 +1,46 @@
+class Horse:
+
+    def __init__(self):
+        self.x_distance = 0  # пройденный путь
+        self.sound = 'Frrr'  # звук лошади
+
+    def run(self, dx):
+        self.x_distance += dx  # увеличиваем пройденный путь
+
+
+class Eagle:
+
+    def __init__(self):
+        self.y_distance = 0  # высота полёта
+        self.sound = 'I train, eat, sleep, and repeat'  # звук орла
+
+    def fly(self, dy):
+        self.y_distance += dy  # увеличиваем высоту полёта
+
+
+class Pegasus(Horse, Eagle):
+
+    def __init__(self):
+        Horse.__init__(self)  # инициализируем Horse
+        Eagle.__init__(self)  # инициализируем Eagle
+
+    def move(self, dx, dy):
+        super().run(dx)  # вызываем метод run родителя Horse
+        super().fly(dy)  # вызываем метод fly родителя Eagle
+
+    def get_pos(self):
+        return (self.x_distance, self.y_distance)
+
+    def voice(self):
+        print(self.sound)
+
+
+p1 = Pegasus()
+
+print(p1.get_pos())
+p1.move(10, 15)
+print(p1.get_pos())
+p1.move(-5, 20)
+print(p1.get_pos())
+
+p1.voice()
