@@ -13,7 +13,7 @@ class WordsFinder:
                 text = file.read()
                 for symbol in symbols_to_remove:
                     text = text.replace(symbol, '')
-                all_words[file.name] = list(text.replace('\n', ' ').lower().split())
+                all_words[file.name] = list(text.lower().split())
         return all_words
 
     def find(self, word: str):
