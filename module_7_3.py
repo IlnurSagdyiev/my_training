@@ -23,6 +23,8 @@ class WordsFinder:
                 if word.lower() in value[i]:
                     word_position[key] = i + 1
                     break
+                else:
+                    word_position[key] = 0
         return word_position  # функция выводит позицию первого слова, в котором находится искомый набор символов
 
     def count(self, word: str):
